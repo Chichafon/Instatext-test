@@ -10,9 +10,7 @@
 		82BF06A9279D78420005BB98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF06A8279D78420005BB98 /* AppDelegate.swift */; };
 		82BF06AB279D78420005BB98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF06AA279D78420005BB98 /* SceneDelegate.swift */; };
 		82BF06AD279D78420005BB98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF06AC279D78420005BB98 /* ViewController.swift */; };
-		82BF06B0279D78420005BB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BF06AE279D78420005BB98 /* Main.storyboard */; };
 		82BF06B2279D78460005BB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82BF06B1279D78460005BB98 /* Assets.xcassets */; };
-		82BF06B5279D78460005BB98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BF06B3279D78460005BB98 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,9 +18,7 @@
 		82BF06A8279D78420005BB98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82BF06AA279D78420005BB98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		82BF06AC279D78420005BB98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		82BF06AF279D78420005BB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82BF06B1279D78460005BB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82BF06B4279D78460005BB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82BF06B6279D78460005BB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,15 +52,69 @@
 		82BF06A7279D78420005BB98 /* Instatext test */ = {
 			isa = PBXGroup;
 			children = (
-				82BF06A8279D78420005BB98 /* AppDelegate.swift */,
-				82BF06AA279D78420005BB98 /* SceneDelegate.swift */,
-				82BF06AC279D78420005BB98 /* ViewController.swift */,
-				82BF06AE279D78420005BB98 /* Main.storyboard */,
-				82BF06B1279D78460005BB98 /* Assets.xcassets */,
-				82BF06B3279D78460005BB98 /* LaunchScreen.storyboard */,
-				82BF06B6279D78460005BB98 /* Info.plist */,
+				82BF06BD279D7CBE0005BB98 /* Sources */,
+				82BF06BC279D7CB70005BB98 /* Recources */,
 			);
 			path = "Instatext test";
+			sourceTree = "<group>";
+		};
+		82BF06BC279D7CB70005BB98 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				82BF06B1279D78460005BB98 /* Assets.xcassets */,
+				82BF06B6279D78460005BB98 /* Info.plist */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		82BF06BD279D7CBE0005BB98 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				82BF06BF279D7D0C0005BB98 /* App */,
+				82BF06BE279D7D050005BB98 /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		82BF06BE279D7D050005BB98 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				82BF06C2279D7D400005BB98 /* Presenter */,
+				82BF06C1279D7D320005BB98 /* Model */,
+				82BF06C0279D7D260005BB98 /* View */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		82BF06BF279D7D0C0005BB98 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				82BF06A8279D78420005BB98 /* AppDelegate.swift */,
+				82BF06AA279D78420005BB98 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		82BF06C0279D7D260005BB98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82BF06AC279D78420005BB98 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82BF06C1279D7D320005BB98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82BF06C2279D7D400005BB98 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82BF06B5279D78460005BB98 /* LaunchScreen.storyboard in Resources */,
 				82BF06B2279D78460005BB98 /* Assets.xcassets in Resources */,
-				82BF06B0279D78420005BB98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,25 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		82BF06AE279D78420005BB98 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82BF06AF279D78420005BB98 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		82BF06B3279D78460005BB98 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82BF06B4279D78460005BB98 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		82BF06B7279D78460005BB98 /* Debug */ = {
@@ -288,6 +317,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Instatext test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Instatext-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Instatext test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Instatext-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
