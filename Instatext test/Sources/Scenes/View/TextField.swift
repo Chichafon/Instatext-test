@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextField: UIViewController {
+class TextFieldController: UIViewController {
 
     //MARK: - Properties
 
@@ -31,25 +31,22 @@ class TextField: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(nitification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(buttonAction))
+        navigationItem.rightBarButtonItem?.isEnabled = false
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(buttonAction))
-//        checkTextField()
+        myTextFieldView.text = "Вставьте сюда текст или начните печатать"
+        myTextFieldView.textColor = .systemGray4
+        myTextFieldView.delegate = self
+        Notificator()
 
         view.addSubview(myTextFieldView)
         view.backgroundColor = .white
     }
 
     //MARK: - Actions
-
-    @objc func checkTextField() {
-        if myTextFieldView.text.isEmpty {
-            navigationItem.rightBarButtonItem?.isEnabled = false
-        } else {
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
-    }
 
     @objc func buttonAction() -> UIImage {
 
@@ -59,11 +56,11 @@ class TextField: UIViewController {
             if let window = photoObject as? UIWindow {
                 if window.responds(to: #selector(getter: UIWindow.screen)) || window.screen == UIScreen.main {
                     context!.saveGState();
-                    context!.translateBy(x: window.center.x,
-                                         y: window.center.y);
+                    context!.translateBy(x: myTextFieldView.center.x,
+                                         y: myTextFieldView.center.y);
                     context!.concatenate(window.transform);
-                    context!.translateBy(x: -window.bounds.size.width * window.layer.anchorPoint.x,
-                                         y: -window.bounds.size.height * window.layer.anchorPoint.y);
+                    context!.translateBy(x: (-window.bounds.size.width * 1.16) * window.layer.anchorPoint.x,
+                                         y: (-window.bounds.size.height * 1.315) * window.layer.anchorPoint.y);
                     window.layer.render(in: context!)
                     context!.restoreGState();
                 }
@@ -86,3 +83,46 @@ class TextField: UIViewController {
         self.view.frame.origin.y = 0
     }
 }
+
+//MARK: - Extensions
+
+extension TextFieldController: UITextViewDelegate {
+
+    func Notificator() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(nitification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textViewDidBeginEditing(_:)),
+                                               name: UITextView.textDidBeginEditingNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textViewDidChange(_:)),
+                                               name: UITextView.textDidChangeNotification,
+                                               object: nil)
+    }
+
+    func textViewDidChange(_ textView: UITextView) {
+        if !myTextFieldView.text.isEmpty && myTextFieldView.text != "Вставьте сюда текст или начните печатать" {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if myTextFieldView.text == "Вставьте сюда текст или начните печатать" {
+            myTextFieldView.text = " "
+            myTextFieldView.textColor = .black
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
+}
+
